@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz cumple!</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        html, body{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        #descripcion, h1{
+            text-align: center;
+            margin: 10px;
+        }
+        .estacion{
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            align-items: center;
+        }
+        input, button{
+            width: 100%;
+            height: 50px;
+        }
+        input{
+            font-size: 30px;
+            background-color: lightgray;
+            border: 1px solid darkgray;
+            border-radius: 5px;
+        }
+        button{
+            border: none;
+            background-color: blueviolet;
+            color: #fff;
+            text-transform: uppercase;
+            transition: 0.3s;
+            margin-top: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        button:hover{
+            background-color: cornflowerblue;
+            cursor: pointer;
+        }
+        .descripcion{
+            height: fit-content;
+            width: fit-content;
+            transition: 0.3;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            border: 2px solid black;
+            width: 100%;
+            box-sizing: content-box;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feliz cumpleaños, puta vieja!!</h1>
+    <div>
+        <div id="descripcion">¡Felicidades viejina! El año pasado te puteé bien, y aunque este año no va a ser para tanto, también vas a pasar un ratillo. Ahora mismo tendrás entre tus manos un montón de papelitos con una palabra en negro a un lado y una letra en azul al otro. Las palabras en negro forman los títulos de todas las canciones del setlist de Avatar en Madrid este año. Tendrás que formar los títulos de todas las canciones (y ordenarlos en el orden en el que se tocaron), y una vez lo tengas, las letras azules del dorso formarán cuatro palabras e introducirlas (sin tildes) en los cuatro recuadros. La primera corresponde al invierno, la segunda a la primavera, la tercera al verano y la cuarta al otoño. Tienes un regalo por cada estación, y hasta que no lo descifres, no te voy a dar el regalo :P</div>
+        <div>
+            <div class="estacion">
+                <h3>INVIERNO</h3>
+                <input id="input_invierno" type="text">
+                <button id="bt_invierno" onclick="mostrarInvierno()">Comprobar</button>
+                <div id="descripcion_invierno"></div>
+            </div>
+            <div class="estacion">
+                <h3>PRIMAVERA</h3>
+                <input id="input_primavera" type="text">
+                <button id="bt_primavera" onclick="mostrarPrimavera()">Comprobar</button>
+                <div id="descripcion_primavera"></div>
+            </div>
+            <div class="estacion">
+                <h3>VERANO</h3>
+                <input id="input_verano" type="text">
+                <button id="bt_verano" onclick="mostrarVerano()">Comprobar</button>
+                <div id="descripcion_verano"></div>
+            </div>
+            <div class="estacion">
+                <h3>OTOÑO</h3>
+                <input id="input_otono" type="text">
+                <button id="bt_otono" onclick="mostrarOtono()">Comprobar</button>
+                <div id="descripcion_otono"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const DESCRIPCION_INVIERNO = "Si hay algo por lo que se caracteriza el invierno, a parte de por el frío, es por la Navidad. ¿Y qué es lo que más importante de la Navidad? ¿Estar en familia? ¿El niño Jesús? ¿Los regalos o el turrón? NO, las lucecitas. ¿A quien no le gustan las lucecitas?";
+        const DESCRIPCION_PRIMAVERA = "Me voy a ahorrar descripciones. Creo que con ver el regalo, enseguida vas a adivinar qué tiene que ver con la primavera.";
+        const DESCRIPCION_VERANO = "En verano es cuando más viajes se hacen, y dormir en el trayecto es tentador de no ser porque luego tienes tortícolis 3 semanas (sobre todo si vas con Juan en el Picanto y tiene sueño). No sé cómo de efectivo será este regalo, pero es bien mono.";
+        const DESCRIPCION_OTONO = "Las primeras semanas de otoño siempre son porculeras por el maldito entretiempo. Toda tu ropa te da demasiado calor o demasiado frío, ya sea en la calle o durmiendo. Este regalo es ideal para dormir en entretiempo (en verdad esto sólo es una excusa para regalártelo)";
+        
+        var btInvierno = document.getElementById("bt_invierno");
+        var btPrimavera = document.getElementById("bt_primavera");
+        var btVerano = document.getElementById("bt_verano");
+        var btOtono = document.getElementById("bt_otono");
+
+        var inputInvierno = document.getElementById("input_invierno");
+        var inputPrimavera = document.getElementById("input_primavera");
+        var inputVerano = document.getElementById("input_verano");
+        var inputOtono = document.getElementById("input_otono");
+
+        var descInvierno = document.getElementById("descripcion_invierno");
+        var descPrimavera = document.getElementById("descripcion_primavera");
+        var descVerano = document.getElementById("descripcion_verano");
+        var descOtono = document.getElementById("descripcion_otono");
+
+        const mostrarInvierno = () => {
+            if(inputInvierno.value.toLowerCase() == "destornillador"){
+                descInvierno.textContent = DESCRIPCION_INVIERNO;
+                document.getElementById("descripcion_invierno").className = "descripcion";
+            }
+            else{
+                alert("Nope")
+            }
+        }
+
+        const mostrarPrimavera = () => {
+            if(inputPrimavera.value.toLowerCase() == "apalancamiento"){
+                descPrimavera.textContent = DESCRIPCION_PRIMAVERA;
+                document.getElementById("descripcion_primavera").className = "descripcion";
+            }
+            else{
+                alert("Nope")
+            }
+        }
+
+        const mostrarVerano = () => {
+            if(inputVerano.value.toLowerCase() == "esquizofrenico"){
+                descVerano.textContent = DESCRIPCION_VERANO;
+                document.getElementById("descripcion_verano").className = "descripcion";
+            }
+            else{
+                alert("Nope")
+            }
+        }
+
+        const mostrarOtono = () => {
+            if(inputOtono.value.toLowerCase() == "atragantamientos"){
+                descOtono.textContent = DESCRIPCION_OTONO;
+                document.getElementById("descripcion_otono").className = "descripcion";
+            }
+            else{
+                alert("Nope")
+            }
+        }
+
+    </script>
+</body>
+</html>
